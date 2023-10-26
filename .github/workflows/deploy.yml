@@ -1,0 +1,23 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Update the code
+      run: git pull  
+
+    - name: Test NGINX configuration
+      run: sudo nginx -t
+
+    - name: Reload NGINX
+      run: sudo nginx -s reload
