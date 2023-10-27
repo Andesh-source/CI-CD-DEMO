@@ -21,6 +21,6 @@ jobs:
         key: ${{secrets.SSH_PRIVATE_KEY}}
         port: 22
         script: |
-            echo "connected"
-            # cd /usr/share/nginx/CI-CD-DEMO
-            # sudo git pull
+            cd /usr/share/nginx/CI-CD-DEMO
+            sudo git pull
+            sudo nginx -s reload
