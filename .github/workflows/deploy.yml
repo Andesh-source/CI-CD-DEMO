@@ -18,3 +18,6 @@ jobs:
 
     - name: Test NGINX configuration
       run: sudo nginx -t
+
+    - name: Reload the nginx
+      run: sudo nginx -s reload
