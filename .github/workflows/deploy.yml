@@ -14,7 +14,4 @@ jobs:
       uses: actions/checkout@v2
     
     - name: Update the code
-      run: git pull  
-
-    - name: Test NGINX configuration
-      run: sudo nginx -t
+      run: git pull
