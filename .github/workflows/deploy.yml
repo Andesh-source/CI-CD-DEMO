@@ -17,8 +17,8 @@ jobs:
       uses: appleboy/ssh-action@v0.1.8
       with:
         host: 54.241.225.20
-        username: ${{ secrets.USER_NAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        username: ${{secrets.USER_NAME}}
+        key: ${{secrets.SSH_PRIVATE_KEY}}
         port: 22
         script: |
             cd /usr/share/nginx/CI-CD-DEMO
