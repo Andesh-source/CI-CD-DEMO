@@ -13,9 +13,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
-    - name: Configure AWS Credentials
-      run: |
-        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    - name: Update the code
-      run: sudo git pull
+    - name: New changes 
+      uses: appleboy/ssh-action@v0.1.8
+      with:
+        host: ${{secrets.HOST_IP}}
+        username: ${{ secrets.USER_NAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+            cd /usr/share/nginx/CI-CD-DEMO
+            sudo git pull origin main
