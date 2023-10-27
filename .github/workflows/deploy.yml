@@ -16,10 +16,10 @@ jobs:
     - name: New changes 
       uses: appleboy/ssh-action@v0.1.8
       with:
-        host: ${{secrets.HOST_IP}}
+        host: ${{ secrets.HOST_IP }}
         username: ${{ secrets.USER_NAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
             cd /usr/share/nginx/CI-CD-DEMO
-            sudo git pull origin main
+            sudo git pull
