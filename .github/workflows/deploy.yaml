@@ -16,9 +16,9 @@ jobs:
     - name: New changes 
       uses: appleboy/ssh-action@v0.1.8
       with:
-        host: 52.87.172.240
+        host: 44.220.150.89
         username: ubuntu
-        key: ${{secrets.SSH_PRIVATE_KEY}}
+        key: ${{secrets.SSH_PRIVATE}}
         port: 22
         script: |
             cd /usr/share/nginx/CI-CD-DEMO
