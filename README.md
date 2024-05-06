@@ -71,7 +71,39 @@ This guide will walk you through the process of setting up a CI/CD pipeline usin
     touch deploy.yml
 
 
-7. Edit the file and add the desired YAML code, such as the one provided in your previous message, to define your deployment workflow. Customize the script section of the YAML file to match your specific deployment requirements, such as the path to your code and any additional build or configuration steps needed for your application. Save the file.
+7. Edit the file and add the desired YAML code to define your deployment workflow.
+
+```yaml
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: New changes 
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: 3.89.245.12
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE }}
+          port: 22
+          script: |
+            cd /usr/share/nginx/CI-CD-DEMO
+            sudo git pull
+            sudo nginx -s reload
+```
+          
+            
+ Customize the script section of the YAML file to match your specific deployment requirements, such as the path to your code and any additional build or configuration steps needed for your application. Save the file.
 
 ### Step 5: Push Changes to GitHub
 
