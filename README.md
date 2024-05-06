@@ -38,11 +38,11 @@ This guide will walk you through the process of setting up a CI/CD pipeline usin
 
 2. Clone the repository to your local machine:
 
-    git clone git@github.com:<username>/<repository>.git
+    git clone git@github.com:< username >/< epository>.git
 
     Replace `<username>` with your GitHub username and `<repository>` with your repository name.
 
-### Step 5: Configure GitHub Actions
+### Step 4: Configure GitHub Actions
 
 1. Inside your cloned repository on your local machine, navigate to the root directory of your repository.
 
@@ -73,7 +73,7 @@ This guide will walk you through the process of setting up a CI/CD pipeline usin
 
 7. Edit the file and add the desired YAML code, such as the one provided in your previous message, to define your deployment workflow. Customize the script section of the YAML file to match your specific deployment requirements, such as the path to your code and any additional build or configuration steps needed for your application. Save the file.
 
-### Step 6: Push Changes to GitHub
+### Step 5: Push Changes to GitHub
 
 1. Commit and push your changes from your local machine to the GitHub repository.
 
