@@ -74,6 +74,8 @@ This guide will walk you through the process of setting up a CI/CD pipeline usin
 7. Edit the file and add the desired YAML code to define your deployment workflow.
 
 ```yaml
+# This is a GitHub Actions workflow that triggers whenever there's a push to the main branch.
+# The workflow is named "Deploy to Production".
 name: Deploy to Production
 
 on:
@@ -81,15 +83,22 @@ on:
     branches:
       - main
 
+# This workflow contains a single job called "lint_and_deploy".
+# This job runs on the latest version of Ubuntu.
 jobs:
   lint_and_deploy:
     runs-on: ubuntu-latest
 
+    # The steps in this job are executed in order.
     steps:
+      # The first step in this job checks out the code from the repository using the "actions/checkout" action.
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: New changes 
+      # The second step in this job uses the "appleboy/ssh-action" action to SSH into a remote server and execute some commands.
+      # The "host", "username", and "key" fields specify the IP address, username, and SSH private key to use for authentication.
+      # The "script" field contains the commands to execute on the remote server.
+      - name: New changes
         uses: appleboy/ssh-action@v0.1.8
         with:
           host:  # Ip address of your server
@@ -97,9 +106,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE }}
           port: 22
           script: |
-            cd /usr/share/nginx/CI-CD-DEMO
-            sudo git pull
-            sudo nginx -s reload
+            cd /usr/share/nginx/CI-CD-DEMO  # Change the current directory to the specified path.
+            sudo git pull  # Pull the latest changes from the Git repository.
+            sudo nginx -s reload  # Reload the Nginx server to apply the changes.
+
 ```
           
             
