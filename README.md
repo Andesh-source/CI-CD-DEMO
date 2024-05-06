@@ -18,31 +18,31 @@ This guide will walk you through the process of setting up a CI/CD pipeline usin
 ### Step 2: Install and Configure Nginx
 
 1. **Update the system packages:**
-sudo apt update && sudo apt upgrade -y
+    sudo apt update && sudo apt upgrade -y
 
 
 2. **Install Nginx:**
 
-sudo apt install nginx -y
+    sudo apt install nginx -y
 
 
 3. **Start the Nginx service:**
 
-sudo systemctl start nginx
+    sudo systemctl start nginx
 
 
 ### Step 3: Set Up SSH Key-Based Authentication
 
 1. **Generate an SSH key pair on your EC2 instance (if not already done):**
 
-ssh-keygen -t rsa -b 4096
+    ssh-keygen -t rsa -b 4096
 
 
 2. **Press Enter to save the key pair in the default location.**
 
 3. **Copy the public key to the clipboard:**
 
-cat ~/.ssh/id_rsa.pub
+    cat ~/.ssh/id_rsa.pub
 
 
 4. **Add the public key to your GitHub account:**
@@ -56,7 +56,7 @@ cat ~/.ssh/id_rsa.pub
 
 2. **Clone the repository to your EC2 instance using SSH:**
 
-git clone git@github.com:<username>/<repository>.git
+    git clone git@github.com:<username>/<repository>.git
 
 
 **Replace `<username>` with your GitHub username and `<repository>` with your repository name.**
@@ -67,27 +67,27 @@ git clone git@github.com:<username>/<repository>.git
 
 2. **Create a new directory named `.github` if it doesn't exist:**
 
-mkdir .github
+    mkdir .github
 
 
 3. **Change into the `.github` directory:**
 
-cd .github
+    cd .github
 
 
 4. **Create a new directory named `workflows` inside the `.github` directory:**
 
-mkdir workflows
+    mkdir workflows
 
 
 5. **Change into the newly created `workflows` directory:**
 
-cd workflows
+    cd workflows
 
 
 6. **Create a new file with the `.yml` extension (e.g., `deploy.yml`) to define your deployment workflow:**
 
-touch deploy.yml
+    touch deploy.yml
 
 7. **Edit the file and add the desired YAML code, such as the one provided in your previous message, to define your deployment workflow. Customize the script section of the YAML file to match your specific deployment requirements, such as the path to your code and any additional build or configuration steps needed for your application. Save the file.**
 
