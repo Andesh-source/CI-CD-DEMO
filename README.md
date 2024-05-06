@@ -92,7 +92,7 @@ jobs:
       - name: New changes 
         uses: appleboy/ssh-action@v0.1.8
         with:
-          host: 3.89.245.12
+          host:  # Ip address of your server
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE }}
           port: 22
