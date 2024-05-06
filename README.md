@@ -38,7 +38,7 @@ This guide will walk you through the process of setting up a CI/CD pipeline usin
 
 2. Clone the repository to your local machine:
 
-    git clone git@github.com:< username >/< epository>.git
+    git clone git@github.com:< username>/< repository>.git
 
     Replace `<username>` with your GitHub username and `<repository>` with your repository name.
 
